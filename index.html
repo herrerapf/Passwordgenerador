@@ -22,7 +22,9 @@
 
 <body>
 
-<!-- Layout principal -->
+<!-- Script publicidad PRIMERO y async -->
+<script async src="https://pl28696297.effectivegatecpm.com/82/bd/cf/82bdcfc433077e5494582782c05cf1d3.js"></script>
+
 <div class="main-wrapper">
 
   <!-- APP -->
@@ -38,7 +40,9 @@
     <div class="options">
 
       <div class="option">
-        <label>Longitud: <span id="lengthValue">16</span></label>
+        <label>
+          Longitud: <span id="lengthValue">16</span>
+        </label>
         <input type="range" id="length" min="6" max="32" value="16">
       </div>
 
@@ -63,24 +67,21 @@
   <div class="content">
     <h2>¿Qué es un generador de contraseñas?</h2>
     <p>
-      Un generador de contraseñas seguras crea claves aleatorias difíciles de hackear. 
+      Un generador de contraseñas seguras crea claves aleatorias difíciles de hackear.
       Se recomienda usar al menos 12 caracteres, incluyendo símbolos y números.
     </p>
 
     <h2>¿Por qué usar contraseñas seguras?</h2>
     <p>
-      Las contraseñas débiles pueden ser vulnerables a ataques. 
+      Las contraseñas débiles pueden ser vulnerables a ataques.
       Usar una contraseña fuerte protege tu información personal y cuentas bancarias.
     </p>
   </div>
 
 </div>
 
-<!-- Script de la app -->
-<script src="script.js"></script>
-
-<!-- Script publicidad (mejor al final para no romper layout) -->
-<script src="https://pl28696297.effectivegatecpm.com/82/bd/cf/82bdcfc433077e5494582782c05cf1d3.js"></script>
+<!-- Script de la app SIEMPRE al final y con defer -->
+<script src="script.js" defer></script>
 
 </body>
 </html>
