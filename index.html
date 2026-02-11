@@ -1,74 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-  
 <head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-810Z8C7JPJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-810Z8C7JPJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-810Z8C7JPJ');
+  </script>
 
-  gtag('config', 'G-810Z8C7JPJ');
-</script>
-  
   <meta charset="UTF-8">
   <title>Generador de Contraseñas Seguras Online Gratis</title>
   <meta name="description" content="Genera contraseñas seguras, aleatorias y fuertes en segundos. Herramienta gratuita y rápida.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
+
 </head>
 
-<script src="https://pl28696297.effectivegatecpm.com/82/bd/cf/82bdcfc433077e5494582782c05cf1d3.js"></script>
-  
 <body>
 
-<div class="background"></div>
+<!-- Layout principal -->
+<div class="main-wrapper">
 
-<div class="container">
-  <h1>🔐 Generador de Contraseñas</h1>
-  <p class="subtitle">Crea contraseñas ultra seguras en segundos</p>
+  <!-- APP -->
+  <div class="container">
+    <h1>🔐 Generador de Contraseñas</h1>
+    <p class="subtitle">Crea contraseñas ultra seguras en segundos</p>
 
-  <div class="password-box">
-    <input type="text" id="password" readonly>
-    <button id="copyBtn">Copiar</button>
-  </div>
-
-  <div class="options">
-
-    <div class="option">
-      <label>Longitud: <span id="lengthValue">16</span></label>
-      <input type="range" id="length" min="6" max="32" value="16">
+    <div class="password-box">
+      <input type="text" id="password" readonly>
+      <button id="copyBtn">Copiar</button>
     </div>
 
-    <div class="checkbox-group">
-      <label><input type="checkbox" id="uppercase" checked> Mayúsculas</label>
-      <label><input type="checkbox" id="lowercase" checked> Minúsculas</label>
-      <label><input type="checkbox" id="numbers" checked> Números</label>
-      <label><input type="checkbox" id="symbols"> Símbolos</label>
+    <div class="options">
+
+      <div class="option">
+        <label>Longitud: <span id="lengthValue">16</span></label>
+        <input type="range" id="length" min="6" max="32" value="16">
+      </div>
+
+      <div class="checkbox-group">
+        <label><input type="checkbox" id="uppercase" checked> Mayúsculas</label>
+        <label><input type="checkbox" id="lowercase" checked> Minúsculas</label>
+        <label><input type="checkbox" id="numbers" checked> Números</label>
+        <label><input type="checkbox" id="symbols"> Símbolos</label>
+      </div>
+
     </div>
 
+    <div class="strength-meter">
+      <div id="strengthBar"></div>
+    </div>
+    <p id="strengthText">Seguridad: Alta</p>
+
+    <button id="generateBtn" class="generate">Generar contraseña</button>
   </div>
 
-  <div class="strength-meter">
-    <div id="strengthBar"></div>
-  </div>
-  <p id="strengthText">Seguridad: Alta</p>
+  <!-- CONTENIDO SEO -->
+  <div class="content">
+    <h2>¿Qué es un generador de contraseñas?</h2>
+    <p>
+      Un generador de contraseñas seguras crea claves aleatorias difíciles de hackear. 
+      Se recomienda usar al menos 12 caracteres, incluyendo símbolos y números.
+    </p>
 
-  <button id="generateBtn" class="generate">Generar contraseña</button>
+    <h2>¿Por qué usar contraseñas seguras?</h2>
+    <p>
+      Las contraseñas débiles pueden ser vulnerables a ataques. 
+      Usar una contraseña fuerte protege tu información personal y cuentas bancarias.
+    </p>
+  </div>
 
 </div>
 
-<!-- CONTENIDO SEO -->
-<section class="seo-content">
-  <h2>¿Qué es un generador de contraseñas?</h2>
-  <p>Un generador de contraseñas seguras crea claves aleatorias difíciles de hackear. Se recomienda usar al menos 12 caracteres, incluyendo símbolos y números.</p>
-
-  <h2>¿Por qué usar contraseñas seguras?</h2>
-  <p>Las contraseñas débiles pueden ser vulnerables a ataques. Usar una contraseña fuerte protege tu información personal y cuentas bancarias.</p>
-</section>
-
+<!-- Script de la app -->
 <script src="script.js"></script>
+
+<!-- Script publicidad (mejor al final para no romper layout) -->
+<script src="https://pl28696297.effectivegatecpm.com/82/bd/cf/82bdcfc433077e5494582782c05cf1d3.js"></script>
+
 </body>
 </html>
