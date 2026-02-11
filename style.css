@@ -201,3 +201,64 @@ input[type="range"] {
     0 15px 40px rgba(0,0,0,0.8),
     inset 0 0 15px rgba(255,255,255,0.08);
 }
+/* ========================= */
+/* RESPONSIVE GLOBAL */
+/* ========================= */
+
+/* Permitir scroll en móviles */
+body {
+  min-height: 100vh;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 40px 15px;
+}
+
+/* Ajuste contenedor en móviles */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 30px 20px;
+    border-radius: 20px;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .password-box input {
+    font-size: 13px;
+    padding: 14px;
+  }
+
+  .password-box button {
+    padding: 14px;
+    font-size: 12px;
+  }
+
+  .generate {
+    padding: 14px;
+    font-size: 13px;
+  }
+
+}
+
+/* Ajuste ultra pequeños (celulares antiguos) */
+@media (max-width: 400px) {
+
+  .container {
+    padding: 25px 15px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+}
+
+
