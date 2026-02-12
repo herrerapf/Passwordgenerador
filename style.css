@@ -29,6 +29,7 @@ body::before {
               radial-gradient(circle at 70% 60%, rgba(255,255,255,0.05), transparent 40%);
   animation: floatBg 8s ease-in-out infinite alternate;
   z-index: -1;
+  pointer-events: none;
 }
 
 @keyframes floatBg {
@@ -70,6 +71,7 @@ body::before {
   overflow: hidden;
 }
 
+/* IMPORTANTE: evitar que bloquee clics */
 .container::before {
   content: "";
   position: absolute;
@@ -82,6 +84,7 @@ body::before {
     linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
+  pointer-events: none;
 }
 
 /* ========================= */
@@ -121,6 +124,7 @@ h1 {
   border: none;
   color: #fff;
   font-size: 15px;
+  outline: none;
 }
 
 .password-box button {
@@ -145,10 +149,20 @@ h1 {
   font-size: 14px;
 }
 
+/* ARREGLO IMPORTANTE DEL SLIDER */
+
 input[type="range"] {
   width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
   accent-color: #aaa;
+  position: relative;
+  z-index: 2;
 }
+
+/* ========================= */
+/* CHECKBOXES */
+/* ========================= */
 
 .checkbox-group {
   margin-top: 15px;
@@ -165,6 +179,7 @@ input[type="range"] {
 .checkbox-group input {
   margin-right: 8px;
   accent-color: #bbb;
+  cursor: pointer;
 }
 
 /* ========================= */
@@ -182,7 +197,7 @@ input[type="range"] {
 
 #strengthBar {
   height: 100%;
-  width: 70%;
+  width: 0%;
   border-radius: 12px;
   background: linear-gradient(90deg, #22c55e, #4ade80);
   transition: 0.4s ease;
