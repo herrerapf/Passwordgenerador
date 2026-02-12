@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
   const passwordField = document.getElementById("password");
   const lengthSlider = document.getElementById("length");
@@ -8,78 +8,86 @@ document.addEventListener("DOMContentLoaded", function () {
   const strengthBar = document.getElementById("strengthBar");
   const strengthText = document.getElementById("strengthText");
 
-  // Seguridad extra: verificar que los elementos existen
   if (!passwordField || !lengthSlider || !generateBtn) {
-    console.error("Elementos no encontrados en el DOM");
+    console.error("Error: Elementos no encontrados");
     return;
   }
 
-  // Actualizar valor del slider
+  // Mostrar valor inicial del slider
   lengthValue.textContent = lengthSlider.value;
 
+  // Actualizar número cuando se mueve
   lengthSlider.addEventListener("input", () => {
     lengthValue.textContent = lengthSlider.value;
   });
 
-  generateBtn.addEventListener("click", generatePassword);
-  copyBtn.addEventListener("click", copyPassword);
+  // Generar contraseña
+  generateBtn.addEventListener("click", () => {
+    generatePassword();
+  });
+
+  // Copiar contraseña
+  copyBtn.addEventListener("click", () => {
+    if (!passwordField.value) return;
+
+    navigator.clipboard.writeText(passwordField.value)
+      .then(() => {
+        copyBtn.textContent = "Copiado!";
+        setTimeout(() => {
+          copyBtn.textContent = "Copiar";
+        }, 1500);
+      });
+  });
 
   function generatePassword() {
+
     const length = parseInt(lengthSlider.value);
+
     const upper = document.getElementById("uppercase").checked;
     const lower = document.getElementById("lowercase").checked;
     const numbers = document.getElementById("numbers").checked;
     const symbols = document.getElementById("symbols").checked;
 
     let chars = "";
+
     if (upper) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     if (lower) chars += "abcdefghijklmnopqrstuvwxyz";
     if (numbers) chars += "0123456789";
     if (symbols) chars += "!@#$%^&*()_+-=[]{}<>?";
 
-    if (chars === "") {
+    if (chars.length === 0) {
       alert("Selecciona al menos una opción");
       return;
     }
 
     let password = "";
+
     for (let i = 0; i < length; i++) {
       const randomIndex = Math.floor(Math.random() * chars.length);
       password += chars[randomIndex];
     }
 
     passwordField.value = password;
-    checkStrength(password);
+    updateStrength(password);
   }
 
-  function copyPassword() {
-    if (!passwordField.value) return;
+  function updateStrength(password) {
 
-    navigator.clipboard.writeText(passwordField.value)
-      .then(() => {
-        copyBtn.textContent = "Copiado!";
-        setTimeout(() => copyBtn.textContent = "Copiar", 1500);
-      })
-      .catch(() => {
-        alert("No se pudo copiar");
-      });
-  }
-
-  function checkStrength(password) {
     let strength = 0;
 
     if (password.length >= 12) strength++;
     if (/[A-Z]/.test(password)) strength++;
+    if (/[a-z]/.test(password)) strength++;
     if (/[0-9]/.test(password)) strength++;
     if (/[^A-Za-z0-9]/.test(password)) strength++;
 
-    const width = (strength / 4) * 100;
-    strengthBar.style.width = width + "%";
+    const percent = (strength / 5) * 100;
+    strengthBar.style.width = percent + "%";
 
-    if (strength <= 2) {
+    if (percent < 40) {
       strengthBar.style.background = "#ef4444";
       strengthText.textContent = "Seguridad: Baja";
-    } else if (strength === 3) {
+    } else if (percent < 80) {
       strengthBar.style.background = "#facc15";
       strengthText.textContent = "Seguridad: Media";
     } else {
@@ -88,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Generar contraseña al cargar
+  // Generar al cargar
   generatePassword();
 
 });
